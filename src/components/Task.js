@@ -24,7 +24,7 @@ const Task = (props) => {
       <div className="w-1/12 border-1 border-red-500 flex justify-center">
         <FontAwesomeIcon
           icon="fa-solid fa-trash-can"
-          className="w-6 h-6 m-auto"
+          className="w-7 h-7 m-auto"
         />
       </div>
     </div>
