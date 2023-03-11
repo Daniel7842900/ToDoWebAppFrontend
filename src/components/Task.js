@@ -1,9 +1,11 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const Task = (props) => {
   const { detail, status } = props;
 
   return (
     <div className="w-full border-2 border-green-500 mx-auto mt-2 flex-auto flex">
-      {/* Task checkbox */}
+      {/* Task Checkbox */}
       <div className="w-1/12 border-2 border-sky-500 flex justify-center">
         <input
           type="checkbox"
@@ -12,9 +14,19 @@ const Task = (props) => {
       </div>
       {/* Task Description */}
       <div className="w-10/12 border-2 border-yellow-500 mx-auto">
-        <input type="text" className="text-2xl align-middle " value={detail} />
+        <input
+          type="text"
+          className="w-full text-2xl align-middle"
+          value={detail}
+        />
       </div>
-      <div className="w-1/12 border-2 border-red-500 mx-auto"></div>
+      {/* Task Remove Icon */}
+      <div className="w-1/12 border-1 border-red-500 flex justify-center">
+        <FontAwesomeIcon
+          icon="fa-solid fa-trash-can"
+          className="w-6 h-6 m-auto"
+        />
+      </div>
     </div>
   );
 };
