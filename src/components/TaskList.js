@@ -4,7 +4,7 @@ const TaskList = (props) => {
   //   const { detail, status } = props;
 
   return (
-    <div className="w-3/4 border-2 border-yellow-500 mx-auto mt-5 flex flex-col flex-nowrap">
+    <div className="w-11/12 border-2 border-yellow-500 mx-auto mt-5 flex flex-col flex-nowrap">
       <div className="w-full border-2 border-green-500 mx-auto mt-5 flex-auto">
         <h1 class="text-3xl font-bold underline">Tasks</h1>
       </div>
