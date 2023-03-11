@@ -1,8 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import ToDo from "./pages/ToDo";
 
 function App() {
+  library.add(faTrashCan);
   return (
     <BrowserRouter>
       <React.Fragment>
