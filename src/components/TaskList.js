@@ -1,8 +1,54 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Task from "../components/Task";
+import { useState } from "react";
 
 const TaskList = (props) => {
-  //   const { detail, status } = props;
+  // const { detail, status } = props;
+  const [list, setList] = useState([
+    {
+      id: 1,
+      detail: "test 1",
+      completed: true,
+    },
+    {
+      id: 2,
+      detail: "test 2",
+      completed: false,
+    },
+    {
+      id: 3,
+      detail: "test 3",
+      completed: false,
+    },
+  ]);
+
+  // const [list, setList] = useState([]);
+
+  // const [task, setTask] = useState({
+  //   id: "",
+  //   detail: "",
+  //   status: false,
+  // });
+
+  const [detail, setDetail] = useState("");
+  const [completed, setCompleted] = useState(false);
+
+  const handleTextChange = (e) => {
+    console.log("text changing...");
+    console.log(e.target.value);
+    setDetail(e.target.value);
+    const newList = list.map((el) =>
+      el.id === 2 ? { ...el, detail: e.target.value } : el
+    );
+
+    setList(newList);
+
+    // const newList = list.concat()
+  };
+
+  const handleCheckboxChange = (e) => {
+    setCompleted(!completed);
+  };
 
   return (
     <div className="w-11/12 border-2 border-yellow-500 mx-auto mt-5 flex flex-col flex-nowrap">
@@ -15,8 +61,20 @@ const TaskList = (props) => {
           <FontAwesomeIcon icon="fa-solid fa-plus" className="w-7 h-7 m-auto" />
         </div>
       </div>
-      <Task />
-      <Task />
+      {list.map((task) => {
+        return (
+          <Task
+            detail={task.detail}
+            completed={task.completed}
+            setDetail={setDetail}
+            setCompleted={setCompleted}
+            handleTextChange={handleTextChange}
+            handleCheckboxChange={handleCheckboxChange}
+          />
+        );
+      })}
+      {/* <Task /> */}
+      {/* <Task /> */}
       {/* <Task detail="Task 3" status={true} />
       <Task detail="Task 4" status={true} />
       <Task detail="Task 5" status={true} />
