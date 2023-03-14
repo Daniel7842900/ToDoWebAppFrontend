@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Modal = (props) => {
   const { show, setShow } = props;
 
-  const handleCloseModal = (e) => {
+  const handleCloseModal = () => {
     setShow(false);
   };
 
@@ -36,7 +36,7 @@ const Modal = (props) => {
                   <input
                     type="text"
                     name="task"
-                    className="w-full text-2xl align-middle border-none focus:ring-0"
+                    className="w-full text-xl align-middle border-none focus:ring-0"
                     placeholder="Enter a task..."
                     autoComplete="off"
                   />
