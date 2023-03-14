@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Task from "../components/Task";
+import Task from "./Task";
 import { useState } from "react";
 
 const TaskList = (props) => {
