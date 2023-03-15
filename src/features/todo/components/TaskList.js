@@ -2,7 +2,12 @@ import IconButton from "../../../components/IconButton";
 import Task from "./Task";
 
 const TaskList = (props) => {
-  const { list, handleTaskDetailChange, handleTaskCheckboxChange } = props;
+  const {
+    list,
+    handleTaskDetailChange,
+    handleTaskCheckboxChange,
+    handleTaskDelete,
+  } = props;
 
   return (
     <div className="w-11/12 border-2 border-yellow-500 mx-auto mt-5 flex flex-col flex-nowrap">
@@ -25,6 +30,7 @@ const TaskList = (props) => {
             task={task}
             handleTaskDetailChange={handleTaskDetailChange}
             handleTaskCheckboxChange={handleTaskCheckboxChange}
+            handleTaskDelete={handleTaskDelete}
           />
         );
       })}
