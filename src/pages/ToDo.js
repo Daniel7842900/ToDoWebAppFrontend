@@ -3,6 +3,7 @@ import Modal from "../layouts/Modal";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as uuidv4 } from "uuid";
+import IconButton from "../components/IconButton";
 
 function ToDo() {
   const [modalData, setModalData] = useState({
@@ -108,15 +109,12 @@ function ToDo() {
       />
       {/* Task Add Button - Mobile */}
       <div className="w-full h-28 mx-auto fixed bottom-0 text-right lg:hidden xl:hidden 2xl:hidden">
-        <div
-          className="w-16 h-16 mr-6 ml-auto mt-4 rounded-full border-2 border-blue-500 bg-blue-500 flex justify-center items-center"
-          onClick={handleOpenModal}
-        >
-          <FontAwesomeIcon
-            icon="fa-solid fa-plus"
-            className="w-8 h-8 m-auto text-white "
-          />
-        </div>
+        <IconButton
+          containerClassName="w-16 h-16 mr-6 ml-auto mt-4 rounded-full border-2 border-blue-500 bg-blue-500 flex justify-center items-center"
+          icon="fa-solid fa-plus"
+          iconClassName="w-8 h-8 m-auto text-white"
+          handleOnClick={handleOpenModal}
+        />
       </div>
     </div>
   );
