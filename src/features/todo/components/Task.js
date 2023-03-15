@@ -2,25 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
 const Task = (props) => {
-  const {
-    detail,
-    completed,
-    setDetail,
-    setCompleted,
-    handleTextChange,
-    handleCheckboxChange,
-  } = props;
-
-  // const [detail, setDetail] = useState("");
-  // const [completed, setCompleted] = useState(false);
-
-  // const handleTextChange = (e) => {
-  //   setDetail(e.target.value);
-  // };
-
-  // const handleCheckboxChange = (e) => {
-  //   setCompleted(!completed);
-  // };
+  const { task, handleTextChange, handleCheckboxChange } = props;
+  const { id, detail, completed } = task;
 
   return (
     <div className="w-full border-2 border-green-500 mx-auto mt-2 flex-auto flex">
@@ -29,13 +12,14 @@ const Task = (props) => {
         <input
           type="checkbox"
           className="rounded-full w-9 h-9 m-auto border-2 border-sky-500"
-          onChange={handleCheckboxChange}
+          onChange={() => handleCheckboxChange(id)}
         />
       </div>
       {/* Task Description */}
       <div className="w-10/12 border-2 border-yellow-500 mx-auto">
         {completed ? (
           <input
+            id={id}
             type="text"
             name="task"
             className="w-full text-2xl align-middle line-through text-gray-500 read-only:bg-gray-100"
@@ -45,6 +29,7 @@ const Task = (props) => {
           />
         ) : (
           <input
+            id={id}
             type="text"
             name="task"
             className="w-full text-2xl align-middle"

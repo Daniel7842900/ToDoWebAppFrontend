@@ -1,53 +1,25 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Task from "./Task";
-import { useState } from "react";
 
 const TaskList = (props) => {
-  // const { detail, status } = props;
-  const [list, setList] = useState([
-    {
-      id: 1,
-      detail: "test 1",
-      completed: true,
-    },
-    {
-      id: 2,
-      detail: "test 2",
-      completed: false,
-    },
-    {
-      id: 3,
-      detail: "test 3",
-      completed: false,
-    },
-  ]);
-
-  // const [list, setList] = useState([]);
-
-  // const [task, setTask] = useState({
-  //   id: "",
-  //   detail: "",
-  //   status: false,
-  // });
-
-  const [detail, setDetail] = useState("");
-  const [completed, setCompleted] = useState(false);
+  const { list, setList } = props;
 
   const handleTextChange = (e) => {
-    console.log("text changing...");
-    console.log(e.target.value);
-    setDetail(e.target.value);
-    const newList = list.map((el) =>
-      el.id === 2 ? { ...el, detail: e.target.value } : el
+    // Create a new array with modified task detail
+    const newList = list.map((task) =>
+      task.id === e.target.id ? { ...task, detail: e.target.value } : task
     );
 
     setList(newList);
-
-    // const newList = list.concat()
   };
 
-  const handleCheckboxChange = (e) => {
-    setCompleted(!completed);
+  const handleCheckboxChange = (id) => {
+    // Create a new array with modified task complete status
+    const newList = list.map((task) =>
+      task.id === id ? { ...task, completed: !task.completed } : task
+    );
+
+    setList(newList);
   };
 
   return (
@@ -61,33 +33,17 @@ const TaskList = (props) => {
           <FontAwesomeIcon icon="fa-solid fa-plus" className="w-7 h-7 m-auto" />
         </div>
       </div>
-      {list.map((task) => {
+      {/* Tasks in the list */}
+      {list.map((task, i) => {
         return (
           <Task
-            detail={task.detail}
-            completed={task.completed}
-            setDetail={setDetail}
-            setCompleted={setCompleted}
+            key={i}
+            task={task}
             handleTextChange={handleTextChange}
             handleCheckboxChange={handleCheckboxChange}
           />
         );
       })}
-      {/* <Task /> */}
-      {/* <Task /> */}
-      {/* <Task detail="Task 3" status={true} />
-      <Task detail="Task 4" status={true} />
-      <Task detail="Task 5" status={true} />
-      <Task detail="Task 6" status={true} />
-      <Task detail="Task 7" status={true} />
-      <Task detail="Task 8" status={true} />
-      <Task detail="Task 9" status={true} />
-      <Task detail="Task 10" status={true} />
-      <Task detail="Task 11" status={true} />
-      <Task detail="Task 12" status={true} />
-      <Task detail="Task 13" status={true} />
-      <Task detail="Task 14" status={true} />
-      <Task detail="Task 15" status={true} />  */}
     </div>
   );
 };
