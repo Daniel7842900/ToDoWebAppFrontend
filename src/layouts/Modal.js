@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IconButton from "../components/IconButton";
 import TextButton from "../components/TextButton";
 import TextInput from "../components/TextInput";
