@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Button from "../components/Button";
 
 const Modal = (props) => {
   const { closeModal, handleChange, handleCreateTask } = props;
@@ -41,13 +42,13 @@ const Modal = (props) => {
               </div>
               {/* Create Button */}
               <div className=" bottom-0 mx-auto left-0 right-0 bg-gray-50 sm:flex sm:flex-row-reverse sm:px-6">
-                <button
+                <Button
                   type="button"
                   className="inline-flex w-full justify-center rounded-md bg-blue-500 px-10 py-4 text-sm text-white font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                  onClick={handleCreateTask}
-                >
-                  Create Task
-                </button>
+                  handleOnClick={handleCreateTask}
+                  text="Create Task"
+                />
+                {/* <button>Create Task</button> */}
               </div>
             </div>
           </div>
