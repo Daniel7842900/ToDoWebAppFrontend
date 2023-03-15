@@ -2,25 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Task from "./Task";
 
 const TaskList = (props) => {
-  const { list, setList } = props;
-
-  const handleTextChange = (e) => {
-    // Create a new array with modified task detail
-    const newList = list.map((task) =>
-      task.id === e.target.id ? { ...task, detail: e.target.value } : task
-    );
-
-    setList(newList);
-  };
-
-  const handleCheckboxChange = (id) => {
-    // Create a new array with modified task complete status
-    const newList = list.map((task) =>
-      task.id === id ? { ...task, completed: !task.completed } : task
-    );
-
-    setList(newList);
-  };
+  const { list, handleTaskDetailChange, handleTaskCheckboxChange } = props;
 
   return (
     <div className="w-11/12 border-2 border-yellow-500 mx-auto mt-5 flex flex-col flex-nowrap">
@@ -39,8 +21,8 @@ const TaskList = (props) => {
           <Task
             key={i}
             task={task}
-            handleTextChange={handleTextChange}
-            handleCheckboxChange={handleCheckboxChange}
+            handleTaskDetailChange={handleTaskDetailChange}
+            handleTaskCheckboxChange={handleTaskCheckboxChange}
           />
         );
       })}

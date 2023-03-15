@@ -25,18 +25,22 @@ function ToDo() {
     },
   ]);
 
+  /** Handle an event to open a modal */
   const handleOpenModal = () => {
     setModalShow(true);
   };
 
+  /** Handle an event to close a modal */
   const handleCloseModal = () => {
     setModalShow(false);
   };
 
+  /** Handle an event to change detail in a modal */
   const handleModalChange = (e) => {
     setModalDetail(e.target.value);
   };
 
+  /** Handle an event to create a new task from a modal */
   const handleCreateTask = () => {
     // Add the new task to existing list
     const newList = list.concat({
@@ -52,6 +56,26 @@ function ToDo() {
     setModalShow(false);
   };
 
+  /** Handle an event to change detail in a task */
+  const handleTaskDetailChange = (e) => {
+    // Create a new array with modified task detail
+    const newList = list.map((task) =>
+      task.id === e.target.id ? { ...task, detail: e.target.value } : task
+    );
+
+    setList(newList);
+  };
+
+  /** Handle an event to change complete status in a task */
+  const handleTaskCheckboxChange = (id) => {
+    // Create a new array with modified task complete status
+    const newList = list.map((task) =>
+      task.id === id ? { ...task, completed: !task.completed } : task
+    );
+
+    setList(newList);
+  };
+
   return (
     <div className="border-2 border-sky-500 min-h-screen">
       {modalShow ? (
@@ -61,7 +85,12 @@ function ToDo() {
           handleCreateTask={handleCreateTask}
         />
       ) : null}
-      <TaskList list={list} setList={setList} />
+      <TaskList
+        list={list}
+        setList={setList}
+        handleTaskDetailChange={handleTaskDetailChange}
+        handleTaskCheckboxChange={handleTaskCheckboxChange}
+      />
       {/* Task Add Button - Mobile */}
       <div className="w-full h-28 mx-auto fixed bottom-0 text-right lg:hidden xl:hidden 2xl:hidden">
         <div
