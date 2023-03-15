@@ -1,4 +1,4 @@
-const Button = (props) => {
+const TextButton = (props) => {
   const { type, className, text, handleOnClick } = props;
 
   return (
@@ -8,4 +8,4 @@ const Button = (props) => {
   );
 };
 
-export default Button;
+export default TextButton;
