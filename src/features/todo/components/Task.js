@@ -1,4 +1,5 @@
 import IconButton from "../../../components/IconButton";
+import TextInput from "../../../components/TextInput";
 
 const Task = (props) => {
   const { task, handleTaskDetailChange, handleTaskCheckboxChange } = props;
@@ -15,28 +16,20 @@ const Task = (props) => {
         />
       </div>
       {/* Task Description */}
-      <div className="w-10/12 border-2 border-yellow-500 mx-auto">
-        {completed ? (
-          <input
-            id={id}
-            type="text"
-            name="task"
-            className="w-full text-2xl align-middle line-through text-gray-500 read-only:bg-gray-100"
-            onChange={handleTaskDetailChange}
-            value={detail}
-            readOnly
-          />
-        ) : (
-          <input
-            id={id}
-            type="text"
-            name="task"
-            className="w-full text-2xl align-middle"
-            onChange={handleTaskDetailChange}
-            value={detail}
-          />
-        )}
-      </div>
+      <TextInput
+        containerClassName="w-10/12 border-2 border-yellow-500 mx-auto"
+        inputClassName={
+          completed
+            ? "w-full text-2xl align-middle line-through text-gray-500 read-only:bg-gray-100"
+            : "w-full text-2xl align-middle"
+        }
+        id={id}
+        type="text"
+        name="task"
+        handleOnChange={handleTaskDetailChange}
+        value={detail}
+        readOnly={completed}
+      />
       {/* Task Remove Icon */}
       <IconButton
         containerClassName="w-1/12 border-1 border-red-500 flex justify-center"
