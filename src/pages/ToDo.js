@@ -1,8 +1,7 @@
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import TaskList from "../features/todo/components/TaskList";
 import Modal from "../layouts/Modal";
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { v4 as uuidv4 } from "uuid";
 import IconButton from "../components/IconButton";
 
 function ToDo() {
@@ -72,6 +71,16 @@ function ToDo() {
     });
   };
 
+  /** Handle an event to delete the task */
+  const handleDeleteTask = (id) => {
+    // Create a new array without the task with the given id
+    const newList = list.filter((task) => {
+      return task.id !== id;
+    });
+
+    setList(newList);
+  };
+
   /** Handle an event to change detail in a task */
   const handleTaskDetailChange = (e) => {
     // Create a new array with modified task detail
@@ -94,6 +103,7 @@ function ToDo() {
 
   return (
     <div className="border-2 border-sky-500 min-h-screen">
+      {/* Modal for creating a new task - Mobile */}
       {modalData.show ? (
         <Modal
           closeModal={handleCloseModal}
@@ -101,11 +111,12 @@ function ToDo() {
           handleCreateTask={handleCreateTask}
         />
       ) : null}
+      {/* Task list */}
       <TaskList
         list={list}
-        setList={setList}
         handleTaskDetailChange={handleTaskDetailChange}
         handleTaskCheckboxChange={handleTaskCheckboxChange}
+        handleTaskDelete={handleDeleteTask}
       />
       {/* Task Add Button - Mobile */}
       <div className="w-full h-28 mx-auto fixed bottom-0 text-right lg:hidden xl:hidden 2xl:hidden">

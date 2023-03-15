@@ -47,7 +47,6 @@ const Modal = (props) => {
                   handleOnClick={handleCreateTask}
                   text="Create Task"
                 />
-                {/* <button>Create Task</button> */}
               </div>
             </div>
           </div>
