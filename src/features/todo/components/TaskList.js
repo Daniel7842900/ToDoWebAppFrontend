@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import IconButton from "../../../components/IconButton";
 import Task from "./Task";
 
 const TaskList = (props) => {
@@ -11,9 +11,11 @@ const TaskList = (props) => {
           <h1 className="text-3xl font-bold underline">Tasks</h1>
         </div>
         {/* Task Add Button - Desktop */}
-        <div className="hidden w-1/12 border-2 border-sky-500 mx-auto flex-auto lg:flex justify-center">
-          <FontAwesomeIcon icon="fa-solid fa-plus" className="w-7 h-7 m-auto" />
-        </div>
+        <IconButton
+          containerClassName="hidden w-1/12 border-2 border-sky-500 mx-auto flex-auto lg:flex justify-center"
+          icon="fa-solid fa-plus"
+          iconClassName="w-7 h-7 m-auto"
+        />
       </div>
       {/* Tasks in the list */}
       {list.map((task, i) => {
