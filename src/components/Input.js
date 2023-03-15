@@ -1,4 +1,4 @@
-const TextInput = (props) => {
+const Input = (props) => {
   const {
     containerClassName,
     inputClassName,
@@ -29,4 +29,4 @@ const TextInput = (props) => {
   );
 };
 
-export default TextInput;
+export default Input;

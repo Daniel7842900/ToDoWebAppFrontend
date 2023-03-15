@@ -1,5 +1,5 @@
 import IconButton from "../../../components/IconButton";
-import TextInput from "../../../components/TextInput";
+import Input from "../../../components/Input";
 
 const Task = (props) => {
   const { task, handleTaskDetailChange, handleTaskCheckboxChange } = props;
@@ -8,15 +8,14 @@ const Task = (props) => {
   return (
     <div className="w-full border-2 border-green-500 mx-auto mt-2 flex-auto flex">
       {/* Task Checkbox */}
-      <div className="w-1/12 border-2 border-sky-500 flex justify-center">
-        <input
-          type="checkbox"
-          className="rounded-full w-9 h-9 m-auto border-2 border-sky-500"
-          onChange={() => handleTaskCheckboxChange(id)}
-        />
-      </div>
+      <Input
+        containerClassName="w-1/12 border-2 border-sky-500 flex justify-center"
+        inputClassName="rounded-full w-9 h-9 m-auto border-2 border-sky-500"
+        type="checkbox"
+        handleOnChange={() => handleTaskCheckboxChange(id)}
+      />
       {/* Task Description */}
-      <TextInput
+      <Input
         containerClassName="w-10/12 border-2 border-yellow-500 mx-auto"
         inputClassName={
           completed

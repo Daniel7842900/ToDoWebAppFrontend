@@ -1,6 +1,6 @@
 import IconButton from "../components/IconButton";
 import TextButton from "../components/TextButton";
-import TextInput from "../components/TextInput";
+import Input from "../components/Input";
 
 const Modal = (props) => {
   const { closeModal, handleChange, handleCreateTask } = props;
@@ -29,7 +29,7 @@ const Modal = (props) => {
               />
               {/* ToDo Input */}
               <div className="grow flex items-center justify-center sm:flex sm:items-start">
-                <TextInput
+                <Input
                   containerClassName="text-center sm:mt-0 sm:ml-4 sm:text-left"
                   inputClassName="w-full text-xl align-middle border-none focus:ring-0"
                   type="text"
