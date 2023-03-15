@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IconButton from "../components/IconButton";
 import TextButton from "../components/TextButton";
+import TextInput from "../components/TextInput";
 
 const Modal = (props) => {
   const { closeModal, handleChange, handleCreateTask } = props;
@@ -29,16 +30,15 @@ const Modal = (props) => {
               />
               {/* ToDo Input */}
               <div className="grow flex items-center justify-center sm:flex sm:items-start">
-                <div className="text-center sm:mt-0 sm:ml-4 sm:text-left">
-                  <input
-                    type="text"
-                    name="task"
-                    className="w-full text-xl align-middle border-none focus:ring-0"
-                    placeholder="Enter a task..."
-                    autoComplete="off"
-                    onChange={handleChange}
-                  />
-                </div>
+                <TextInput
+                  containerClassName="text-center sm:mt-0 sm:ml-4 sm:text-left"
+                  inputClassName="w-full text-xl align-middle border-none focus:ring-0"
+                  type="text"
+                  name="task"
+                  placeholder="Enter a task"
+                  autoComplete="off"
+                  handleOnChange={handleChange}
+                />
               </div>
               {/* Create Button */}
               <div className="bottom-0 mx-auto left-0 right-0 bg-gray-50 sm:flex sm:flex-row-reverse sm:px-6">
