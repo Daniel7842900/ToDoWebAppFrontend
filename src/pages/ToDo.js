@@ -5,8 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as uuidv4 } from "uuid";
 
 function ToDo() {
-  const [modalShow, setModalShow] = useState(false);
-  const [modalDetail, setModalDetail] = useState("");
+  const [modalData, setModalData] = useState({
+    show: false,
+    detail: "",
+  });
+
   const [list, setList] = useState([
     {
       id: "1",
@@ -27,17 +30,26 @@ function ToDo() {
 
   /** Handle an event to open a modal */
   const handleOpenModal = () => {
-    setModalShow(true);
+    setModalData({
+      ...modalData,
+      show: true,
+    });
   };
 
   /** Handle an event to close a modal */
   const handleCloseModal = () => {
-    setModalShow(false);
+    setModalData({
+      ...modalData,
+      show: false,
+    });
   };
 
   /** Handle an event to change detail in a modal */
   const handleModalChange = (e) => {
-    setModalDetail(e.target.value);
+    setModalData({
+      ...modalData,
+      detail: e.target.value,
+    });
   };
 
   /** Handle an event to create a new task from a modal */
@@ -45,7 +57,7 @@ function ToDo() {
     // Add the new task to existing list
     const newList = list.concat({
       id: uuidv4(),
-      detail: modalDetail,
+      detail: modalData.detail,
       completed: false,
     });
 
@@ -53,7 +65,10 @@ function ToDo() {
     setList(newList);
 
     // Close the modal
-    setModalShow(false);
+    setModalData({
+      ...modalData,
+      show: false,
+    });
   };
 
   /** Handle an event to change detail in a task */
@@ -78,7 +93,7 @@ function ToDo() {
 
   return (
     <div className="border-2 border-sky-500 min-h-screen">
-      {modalShow ? (
+      {modalData.show ? (
         <Modal
           closeModal={handleCloseModal}
           handleChange={handleModalChange}
