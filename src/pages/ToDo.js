@@ -2,18 +2,66 @@ import TaskList from "../features/todo/components/TaskList";
 import Modal from "../layouts/Modal";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { v4 as uuidv4 } from "uuid";
 
 function ToDo() {
-  const [show, setShow] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
+  const [modalDetail, setModalDetail] = useState("");
+  const [list, setList] = useState([
+    {
+      id: "1",
+      detail: "test 1",
+      completed: false,
+    },
+    {
+      id: "2",
+      detail: "test 2",
+      completed: false,
+    },
+    {
+      id: "3",
+      detail: "test 3",
+      completed: false,
+    },
+  ]);
 
   const handleOpenModal = () => {
-    setShow(true);
+    setModalShow(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalShow(false);
+  };
+
+  const handleModalChange = (e) => {
+    setModalDetail(e.target.value);
+  };
+
+  const handleCreateTask = () => {
+    // Add the new task to existing list
+    const newList = list.concat({
+      id: uuidv4(),
+      detail: modalDetail,
+      completed: false,
+    });
+
+    // Set to the new list
+    setList(newList);
+
+    // Close the modal
+    setModalShow(false);
   };
 
   return (
     <div className="border-2 border-sky-500 min-h-screen">
-      {show ? <Modal show={show} setShow={setShow} /> : null}
-      <TaskList />
+      {modalShow ? (
+        <Modal
+          closeModal={handleCloseModal}
+          handleChange={handleModalChange}
+          handleCreateTask={handleCreateTask}
+        />
+      ) : null}
+      <TaskList list={list} setList={setList} />
       {/* Task Add Button - Mobile */}
       <div className="w-full h-28 mx-auto fixed bottom-0 text-right lg:hidden xl:hidden 2xl:hidden">
         <div

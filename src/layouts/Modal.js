@@ -1,11 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Modal = (props) => {
-  const { show, setShow } = props;
-
-  const handleCloseModal = () => {
-    setShow(false);
-  };
+  const { closeModal, handleChange, handleCreateTask } = props;
 
   return (
     <div
@@ -27,7 +23,7 @@ const Modal = (props) => {
                 <FontAwesomeIcon
                   icon="fa-solid fa-xmark"
                   className="w-7 h-7 m-auto"
-                  onClick={handleCloseModal}
+                  onClick={closeModal}
                 />
               </div>
               {/* ToDo Input */}
@@ -39,6 +35,7 @@ const Modal = (props) => {
                     className="w-full text-xl align-middle border-none focus:ring-0"
                     placeholder="Enter a task..."
                     autoComplete="off"
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -47,6 +44,7 @@ const Modal = (props) => {
                 <button
                   type="button"
                   className="inline-flex w-full justify-center rounded-md bg-blue-500 px-10 py-4 text-sm text-white font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                  onClick={handleCreateTask}
                 >
                   Create Task
                 </button>
