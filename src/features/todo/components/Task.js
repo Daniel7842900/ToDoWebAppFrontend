@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import IconButton from "../../../components/IconButton";
 
 const Task = (props) => {
   const { task, handleTaskDetailChange, handleTaskCheckboxChange } = props;
@@ -38,12 +38,11 @@ const Task = (props) => {
         )}
       </div>
       {/* Task Remove Icon */}
-      <div className="w-1/12 border-1 border-red-500 flex justify-center">
-        <FontAwesomeIcon
-          icon="fa-solid fa-trash-can"
-          className="w-7 h-7 m-auto"
-        />
-      </div>
+      <IconButton
+        containerClassName="w-1/12 border-1 border-red-500 flex justify-center"
+        icon="fa-solid fa-trash-can"
+        iconClassName="w-7 h-7 m-auto"
+      />
     </div>
   );
 };
