@@ -117,6 +117,7 @@ function ToDo() {
         handleTaskDetailChange={handleTaskDetailChange}
         handleTaskCheckboxChange={handleTaskCheckboxChange}
         handleTaskDelete={handleDeleteTask}
+        handleOpenModal={handleOpenModal}
       />
       {/* Task Add Button - Mobile */}
       <div className="w-full h-28 mx-auto fixed bottom-0 text-right lg:hidden xl:hidden 2xl:hidden">
