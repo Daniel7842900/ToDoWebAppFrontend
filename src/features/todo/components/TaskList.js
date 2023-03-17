@@ -11,7 +11,7 @@ const TaskList = (props) => {
   } = props;
 
   return (
-    <div className="w-11/12 border-2 border-yellow-500 mx-auto mt-5 flex flex-col flex-nowrap z-10">
+    <div className="w-11/12 h-5/6 border-2 border-yellow-500 mx-auto mt-5 flex flex-col flex-nowrap overflow-y-auto">
       <div className="w-full border-2 border-green-500 mx-auto mt-5 flex-auto flex">
         <div className="w-11/12 border-2 border-sky-500 mx-auto flex-auto">
           <h1 className="text-3xl font-bold underline">Tasks</h1>
