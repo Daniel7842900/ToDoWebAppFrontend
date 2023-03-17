@@ -24,8 +24,8 @@ const Task = (props) => {
         containerClassName="w-10/12 border-2 border-yellow-500 mx-auto"
         inputClassName={
           completed
-            ? "w-full text-2xl align-middle line-through text-gray-500 read-only:bg-gray-100"
-            : "w-full text-2xl align-middle"
+            ? "w-full text-xl align-middle line-through text-gray-500 read-only:bg-gray-100"
+            : "w-full text-xl align-middle"
         }
         id={id}
         type="text"
