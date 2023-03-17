@@ -11,7 +11,7 @@ const Task = (props) => {
   const { id, detail, completed } = task;
 
   return (
-    <div className="w-full border-2 border-green-500 mx-auto mt-2 flex-auto flex">
+    <div className="w-full border-2 border-green-500 mx-auto mt-2 flex-none flex">
       {/* Task Checkbox */}
       <Input
         containerClassName="w-1/12 border-2 border-sky-500 flex justify-center"
