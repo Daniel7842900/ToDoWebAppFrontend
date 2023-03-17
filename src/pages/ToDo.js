@@ -102,7 +102,7 @@ function ToDo() {
   };
 
   return (
-    <div className="border-2 border-sky-500 flex flex-col h-screen">
+    <div className="border-2 border-sky-500 bg-cyan-600/40 flex flex-col h-screen">
       {/* Modal for creating a new task - Mobile */}
       {modalData.show ? (
         <Modal
