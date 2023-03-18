@@ -18,7 +18,7 @@ const TaskList = (props) => {
         </div>
         {/* Task Add Button - Desktop */}
         <IconButton
-          containerClassName="hidden w-1/12 border-2 border-sky-500 mx-auto flex-auto lg:flex justify-center"
+          containerClassName="hidden w-1/12 mx-auto flex-auto lg:flex justify-center"
           icon="fa-solid fa-plus"
           iconClassName="w-7 h-7 m-auto"
           handleOnClick={handleOpenModal}

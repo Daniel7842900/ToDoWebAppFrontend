@@ -66,7 +66,7 @@ function ToDo() {
 
     // Close the modal
     setModalData({
-      ...modalData,
+      detail: "",
       show: false,
     });
   };
