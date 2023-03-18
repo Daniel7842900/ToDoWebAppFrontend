@@ -14,7 +14,7 @@ const TaskList = (props) => {
     <div className="w-11/12 h-5/6 mx-auto mt-5 flex flex-col flex-nowrap overflow-y-auto">
       <div className="w-full h-8 mx-auto mt-5 flex-none flex">
         <div className="w-11/12 h-8 mx-auto flex-auto">
-          <h1 className="text-3xl font-bold">Tasks</h1>
+          <h1 className="text-3xl font-opensans font-bold">Tasks</h1>
         </div>
         {/* Task Add Button - Desktop */}
         <IconButton
