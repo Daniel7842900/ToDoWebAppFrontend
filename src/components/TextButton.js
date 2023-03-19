@@ -1,8 +1,13 @@
 const TextButton = (props) => {
-  const { type, className, text, handleOnClick } = props;
+  const { type, className, text, handleOnClick, handleOnSubmit } = props;
 
   return (
-    <button type={type} className={className} onClick={handleOnClick}>
+    <button
+      type={type}
+      className={className}
+      onClick={handleOnClick}
+      onSubmit={handleOnSubmit}
+    >
       <span>{text}</span>
     </button>
   );

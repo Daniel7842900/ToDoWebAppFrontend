@@ -1,14 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import Joi from "joi";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import TaskList from "../features/todo/components/TaskList";
 import Modal from "../layouts/Modal";
 import IconButton from "../components/IconButton";
 
 function ToDo() {
+  const schema = Joi.object({
+    detail: Joi.string().required(),
+  });
+
   const [modalData, setModalData] = useState({
     show: false,
     detail: "",
   });
+
+  const [error, setError] = useState("");
 
   const [list, setList] = useState([
     {
@@ -27,6 +36,13 @@ function ToDo() {
       completed: false,
     },
   ]);
+
+  /** Validate the detail submission on a modal */
+  const validateModalDetail = ({ detail }) => {
+    if (detail.length === 0) {
+      return "Task cannot be empty";
+    }
+  };
 
   /** Handle an event to open a modal */
   const handleOpenModal = () => {
@@ -54,21 +70,28 @@ function ToDo() {
 
   /** Handle an event to create a new task from a modal */
   const handleCreateTask = () => {
-    // Add the new task to existing list
-    const newList = list.concat({
-      id: uuidv4(),
-      detail: modalData.detail,
-      completed: false,
-    });
+    const err = validateModalDetail(modalData);
 
-    // Set to the new list
-    setList(newList);
+    if (err !== undefined) {
+      toast.error(err);
+      return;
+    } else {
+      // Add the new task to existing list
+      const newList = list.concat({
+        id: uuidv4(),
+        detail: modalData.detail,
+        completed: false,
+      });
 
-    // Close the modal
-    setModalData({
-      detail: "",
-      show: false,
-    });
+      // Set to the new list
+      setList(newList);
+
+      // Close the modal
+      setModalData({
+        detail: "",
+        show: false,
+      });
+    }
   };
 
   /** Handle an event to delete the task */
@@ -103,9 +126,11 @@ function ToDo() {
 
   return (
     <div className="border-2 border-sky-500 bg-cyan-600/40 flex flex-col h-screen">
+      <ToastContainer />
       {/* Modal for creating a new task - Mobile */}
       {modalData.show ? (
         <Modal
+          error={error}
           closeModal={handleCloseModal}
           handleChange={handleModalChange}
           handleCreateTask={handleCreateTask}
