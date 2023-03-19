@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Joi from "joi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TaskList from "../features/todo/components/TaskList";
@@ -8,16 +7,10 @@ import Modal from "../layouts/Modal";
 import IconButton from "../components/IconButton";
 
 function ToDo() {
-  const schema = Joi.object({
-    detail: Joi.string().required(),
-  });
-
   const [modalData, setModalData] = useState({
     show: false,
     detail: "",
   });
-
-  const [error, setError] = useState("");
 
   const [list, setList] = useState([
     {
@@ -126,11 +119,11 @@ function ToDo() {
 
   return (
     <div className="border-2 border-sky-500 bg-cyan-600/40 flex flex-col h-screen">
-      <ToastContainer />
+      {/* Toast error message */}
+      <ToastContainer autoClose={2000} />
       {/* Modal for creating a new task - Mobile */}
       {modalData.show ? (
         <Modal
-          error={error}
           closeModal={handleCloseModal}
           handleChange={handleModalChange}
           handleCreateTask={handleCreateTask}
