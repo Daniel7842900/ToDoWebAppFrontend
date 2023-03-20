@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TaskList from "../features/todo/components/TaskList";
 import Modal from "../layouts/Modal";
+import TopNav from "../layouts/TopNav";
 import IconButton from "../components/IconButton";
 
 function ToDo() {
@@ -118,42 +119,45 @@ function ToDo() {
   };
 
   return (
-    <div className="border-2 border-sky-500 bg-cyan-600/40 flex flex-col h-screen">
-      {/* Toast error message */}
-      <ToastContainer autoClose={2000} />
-      {/* Modal for creating a new task - Mobile */}
-      {modalData.show ? (
-        <Modal
-          closeModal={handleCloseModal}
-          handleChange={handleModalChange}
-          handleCreateTask={handleCreateTask}
+    <div className="h-screen">
+      <TopNav />
+      <div className="border-2 border-sky-500 bg-cyan-600/40 flex flex-col h-[95vh] md:h-[90vh] lg:h-[95vh]">
+        {/* Toast error message */}
+        <ToastContainer autoClose={2000} />
+        {/* Modal for creating a new task - Mobile */}
+        {modalData.show ? (
+          <Modal
+            closeModal={handleCloseModal}
+            handleChange={handleModalChange}
+            handleCreateTask={handleCreateTask}
+          />
+        ) : null}
+        {/* Task list */}
+        <TaskList
+          list={list}
+          handleTaskDetailChange={handleTaskDetailChange}
+          handleTaskCheckboxChange={handleTaskCheckboxChange}
+          handleTaskDelete={handleDeleteTask}
+          handleOpenModal={handleOpenModal}
         />
-      ) : null}
-      {/* Task list */}
-      <TaskList
-        list={list}
-        handleTaskDetailChange={handleTaskDetailChange}
-        handleTaskCheckboxChange={handleTaskCheckboxChange}
-        handleTaskDelete={handleDeleteTask}
-        handleOpenModal={handleOpenModal}
-      />
-      {/* Task Add Button - Mobile */}
-      <div className="w-full mx-auto flex grow items-center text-center lg:hidden xl:hidden 2xl:hidden">
-        <IconButton
-          containerClassName="w-16 h-16 mx-auto rounded-full border-2 border-blue-500 bg-blue-500 flex justify-center"
-          icon="fa-solid fa-plus"
-          iconClassName="w-8 h-8 m-auto text-white"
-          handleOnClick={handleOpenModal}
-        />
-      </div>
-      {/* <div className="w-full h-28 mx-auto fixed bottom-0 text-right lg:hidden xl:hidden 2xl:hidden"> */}
-      {/* <IconButton
+        {/* Task Add Button - Mobile */}
+        <div className="w-full mx-auto flex grow items-center text-center lg:hidden xl:hidden 2xl:hidden">
+          <IconButton
+            containerClassName="w-16 h-16 mx-auto rounded-full border-2 border-blue-500 bg-blue-500 flex justify-center"
+            icon="fa-solid fa-plus"
+            iconClassName="w-8 h-8 m-auto text-white"
+            handleOnClick={handleOpenModal}
+          />
+        </div>
+        {/* <div className="w-full h-28 mx-auto fixed bottom-0 text-right lg:hidden xl:hidden 2xl:hidden"> */}
+        {/* <IconButton
         containerClassName="w-16 h-16 mr-4 ml-auto mb-4 rounded-full border-2 border-blue-500 bg-blue-500 flex justify-center items-center mx-auto fixed bottom-0 text-right right-0 lg:hidden xl:hidden 2xl:hidden"
         icon="fa-solid fa-plus"
         iconClassName="w-8 h-8 m-auto text-white"
         handleOnClick={handleOpenModal}
       /> */}
-      {/* </div> */}
+        {/* </div> */}
+      </div>
     </div>
   );
 }
