@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const useToggle = (initialValue) => {
-  console.log("toggled");
   const [toggleValue, setToggleValue] = useState(initialValue);
 
   const toggler = () => {

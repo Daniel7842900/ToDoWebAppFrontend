@@ -6,6 +6,7 @@ import useToggle from "../hooks/useToggle";
 
 const TopNav = () => {
   const [burgerToggle, setBurgerToggle] = useToggle(false);
+  const [profileToggle, setProfileToggle] = useToggle(false);
 
   return (
     <nav>
@@ -17,7 +18,50 @@ const TopNav = () => {
         {/* Navigation menu - Desktop */}
         <div className="hidden lg:flex items-center mr-4 lg:mr-10 xl:mr-14 2xl:mr-28">
           <img src={shop} alt="shop" className="w-8 h-8 mx-2" />
-          <div className="w-8 h-8 border-2 border-blue-500"></div>
+          <div
+            className="w-8 h-8 border-2 border-blue-500"
+            onClick={setProfileToggle}
+          ></div>
+          {/* Account specific menu - Desktop */}
+          {profileToggle ? (
+            <div
+              className="absolute right-0 z-10 lg:mt-48 lg:mr-12 xl:mt-40 xl:mr-16 2xl:mt-44 2xl:mr-28 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="user-menu-button"
+              tabIndex="-1"
+            >
+              <a
+                href="#"
+                className="block px-4 py-2 text-sm text-gray-700"
+                role="menuitem"
+                tabindex="-1"
+                id="user-menu-item-0"
+              >
+                Account
+              </a>
+
+              <a
+                href="#"
+                className="block px-4 py-2 text-sm text-gray-700"
+                role="menuitem"
+                tabindex="-1"
+                id="user-menu-item-1"
+              >
+                Settings
+              </a>
+
+              <a
+                href="#"
+                className="block px-4 py-2 text-sm text-gray-700"
+                role="menuitem"
+                tabindex="-1"
+                id="user-menu-item-2"
+              >
+                Sign out
+              </a>
+            </div>
+          ) : null}
         </div>
         <div className="flex mr-4 md:mr-8 lg:hidden">
           {/* Mobile menu button  */}
@@ -59,7 +103,7 @@ const TopNav = () => {
               </p>
             </div>
             <div className="flex-grow overflow-y-auto p-4">
-              <div className="flex mb-4">
+              <div className="flex my-4">
                 <img src={shop} alt="shop" className="w-8 h-8 mx-4 " />
                 <span className="text-2xl font-opensans">Shop</span>
               </div>
@@ -70,6 +114,22 @@ const TopNav = () => {
                   style={{ color: "#ffffff" }}
                 />
                 <span className="text-2xl font-opensans">Account</span>
+              </div>
+              <div className="flex my-4">
+                <FontAwesomeIcon
+                  icon="fa-solid fa-gear"
+                  className="w-8 h-8 mx-4"
+                  style={{ color: "#ffffff" }}
+                />
+                <span className="text-2xl font-opensans">Settings</span>
+              </div>
+              <div className="flex my-4">
+                <FontAwesomeIcon
+                  icon="fa-solid fa-arrow-right-from-bracket"
+                  className="w-8 h-8 mx-4"
+                  style={{ color: "#ffffff" }}
+                />
+                <span className="text-2xl font-opensans">Sign out</span>
               </div>
             </div>
           </div>

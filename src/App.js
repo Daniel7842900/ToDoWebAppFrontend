@@ -6,12 +6,22 @@ import {
   faXmark,
   faBars,
   faUser,
+  faGear,
+  faArrowRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import ToDo from "./pages/ToDo";
 
 function App() {
-  library.add(faTrashCan, faPlus, faXmark, faBars, faUser);
+  library.add(
+    faTrashCan,
+    faPlus,
+    faXmark,
+    faBars,
+    faUser,
+    faGear,
+    faArrowRightFromBracket
+  );
   return (
     <BrowserRouter>
       <React.Fragment>
