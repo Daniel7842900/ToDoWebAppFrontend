@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import coin from "../assets/images/dollar.png";
 import shop from "../assets/images/store.png";
 import IconButton from "../components/IconButton";
@@ -31,55 +32,38 @@ const TopNav = () => {
               aria-labelledby="user-menu-button"
               tabIndex="-1"
             >
-              <a
-                href="#"
+              <Link
                 className="block px-4 py-2 text-sm text-gray-700"
-                role="menuitem"
-                tabindex="-1"
                 id="user-menu-item-0"
+                tabIndex="-1"
               >
-                Account
-              </a>
-
-              <a
-                href="#"
+                <span>Account</span>
+              </Link>
+              <Link
                 className="block px-4 py-2 text-sm text-gray-700"
-                role="menuitem"
-                tabindex="-1"
                 id="user-menu-item-1"
+                tabIndex="-1"
               >
-                Settings
-              </a>
-
-              <a
-                href="#"
+                <span>Settings</span>
+              </Link>
+              <Link
                 className="block px-4 py-2 text-sm text-gray-700"
-                role="menuitem"
-                tabindex="-1"
                 id="user-menu-item-2"
+                tabIndex="-1"
               >
-                Sign out
-              </a>
+                <span>Sign out</span>
+              </Link>
             </div>
           ) : null}
         </div>
         <div className="flex mr-4 md:mr-8 lg:hidden">
           {/* Mobile menu button  */}
-          {burgerToggle ? (
-            <IconButton
-              containerClassName="inline-flex items-center justify-center rounded-md p-2 text-black "
-              icon="fa-solid fa-xmark"
-              iconClassName="block h-6 w-6"
-              handleOnClick={setBurgerToggle}
-            />
-          ) : (
-            <IconButton
-              containerClassName="inline-flex items-center justify-center rounded-md p-2 text-black "
-              icon="fa-solid fa-bars"
-              iconClassName="block h-6 w-6"
-              handleOnClick={setBurgerToggle}
-            />
-          )}
+          <IconButton
+            containerClassName="inline-flex items-center justify-center rounded-md p-2 text-black "
+            icon={burgerToggle ? "fa-solid fa-xmark" : "fa-solid fa-bars"}
+            iconClassName="block h-6 w-6"
+            handleOnClick={setBurgerToggle}
+          />
         </div>
         {/* Mobile menu, show/hide based on menu state.  */}
         {burgerToggle ? (
