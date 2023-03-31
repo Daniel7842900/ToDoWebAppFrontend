@@ -4,13 +4,9 @@ const IconButton = (props) => {
   const { containerClassName, iconClassName, icon, handleOnClick } = props;
 
   return (
-    <div className={containerClassName}>
-      <FontAwesomeIcon
-        icon={icon}
-        className={iconClassName}
-        onClick={handleOnClick}
-      />
-    </div>
+    <button className={containerClassName} onClick={handleOnClick}>
+      <FontAwesomeIcon icon={icon} className={iconClassName} />
+    </button>
   );
 };
 
