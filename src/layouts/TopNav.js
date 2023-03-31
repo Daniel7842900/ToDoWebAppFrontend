@@ -94,24 +94,21 @@ const TopNav = () => {
               <div className="flex my-4">
                 <FontAwesomeIcon
                   icon="fa-solid fa-user"
-                  className="w-8 h-8 mx-4"
-                  style={{ color: "#ffffff" }}
+                  className="w-8 h-8 mx-4 text-white"
                 />
                 <span className="text-2xl font-opensans">Account</span>
               </div>
               <div className="flex my-4">
                 <FontAwesomeIcon
                   icon="fa-solid fa-gear"
-                  className="w-8 h-8 mx-4"
-                  style={{ color: "#ffffff" }}
+                  className="w-8 h-8 mx-4 text-white"
                 />
                 <span className="text-2xl font-opensans">Settings</span>
               </div>
               <div className="flex my-4">
                 <FontAwesomeIcon
                   icon="fa-solid fa-arrow-right-from-bracket"
-                  className="w-8 h-8 mx-4"
-                  style={{ color: "#ffffff" }}
+                  className="w-8 h-8 mx-4 text-white"
                 />
                 <span className="text-2xl font-opensans">Sign out</span>
               </div>
